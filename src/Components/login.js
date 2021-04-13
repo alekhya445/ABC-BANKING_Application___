@@ -44,10 +44,10 @@ function Login(props) {
             for (let i = 0; i < users.length; i++) {
                 debugger
                 if (username == users[i].email && password == users[i].password && users[i].role == 'Admin') {
-                    return props.history.push('/adminaxios');
+                    return props.history.push('/adminpage');
                 } else if (username == users[i].email && password == users[i].password && users[i].role == 'User') {
                     sessionStorage.setItem("user", JSON.stringify(users[i]));
-                    return props.history.push('/useraxios');
+                    return props.history.push('/userpage');
 
                 } else {
                     if (i == users.length - 1) {
