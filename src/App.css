@@ -53,9 +53,79 @@
 .bankintro{
   background-image: -moz-repeating-linear-gradient("https://image.freepik.com/free-vector/books-store-library-emblem-read-more-banner_53562-5727.jpg");
 }
-*{
-  background-color: cadetblue;
-}
+/* *{
+   background-color:cadetblue;
+} */
 h3{
-  background-color: aquamarine;
+  font-family: fantasy;
+  background-color: rgb(255, 127, 155);
 }
+.bankintro{
+ 
+ background-image: linear-gradient(blue,pink); 
+}
+h1{
+  font-family:cursive;
+}
+.navbar navbar-expand-lg navbar-dark bg-dark fixed-top{
+  background-color: lightcoral;
+}
+.loginpage{
+  background-image: linear-gradient(blue,pink);
+}
+h2{
+  font-family: fantasy;
+}
+.signupapage{
+  background-image: linear-gradient(blue,pink);
+
+}
+.navpage{
+  background-image: linear-gradient(blue,pink);
+}
+.viwe1page{
+  background-image: linear-gradient(blue,pink);
+
+}
+.adminpage{
+  background-image: linear-gradient(blue,pink,aqua);
+
+}
+.editpage{
+  background-image: linear-gradient(blue,pink);
+
+
+}
+.adduserpage{
+  background-image: linear-gradient(blue,pink);
+
+}
+.viewuserpage{
+  background-image: linear-gradient(blue,pink);
+
+}
+.list-group w-50{
+  background-color: burlywood;
+}
+.currentadd{
+  background-image: linear-gradient(pink,blue);
+
+}
+.currentdel{
+  background-image: linear-gradient(pink,blue);
+
+}
+.addamount{
+  background-image: linear-gradient(pink,blue);
+
+}
+.delamount{
+  background-image: linear-gradient(pink,blue);
+
+}
+.ministatement{
+  background-image: linear-gradient(pink,blue);
+
+
+}
+  
