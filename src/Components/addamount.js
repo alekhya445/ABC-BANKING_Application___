@@ -68,7 +68,7 @@ function AddAmount() {
             
             <center>
                 <br></br>
-                <Link class='btn btn-outline-primary btnAdd' to={'/useraxios'} block >Back to Savings</Link>
+                <Link class='btn btn-outline-primary btnAdd' to={'/userpage'} block >Back to Savings</Link>
                 <br></br>
                 <br></br>
 
