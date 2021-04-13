@@ -69,20 +69,23 @@ const Viewuser = (props) => {
 
                 <div>
                     <h1 className="display-4">Welcome {user.username} !!!</h1>
+                    <br></br>
+                    <br></br>
+                    <br></br>
 
 
                     <Row>
 
                         <Col className="currentImage">
-                            <Card className="gallery" style={{ width: '15rem' }}>
+                            <Card style={{ width: '14rem' }}>
 
-                                <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIoPb-ZxDJMRk63hvIbgabCzJxwCtpgWKjyA&usqp=CAU" />
+                                <Card.Img variant="top" src="https://tse1.mm.bing.net/th/id/OIP.xDDYMYxTMoLrDTQNX0wLzwHaEJ?w=332&h=187&c=7&o=5&dpr=1.5&pid=1.7" />
                                 <Button variant="dark" onClick={currentButton}>Current</Button>
                             </Card>
                         </Col>
                         <Col className="savingImage">
                             <Card style={{ width: '14rem' }}>
-                                <Card.Img variant="top" src="https://image.slidesharecdn.com/savingaccountv2-161122105425/95/saving-account-1-638.jpg?cb=1479812225" />
+                                <Card.Img variant="top" src="https://tse1.mm.bing.net/th/id/OIP.xDDYMYxTMoLrDTQNX0wLzwHaEJ?w=332&h=187&c=7&o=5&dpr=1.5&pid=1.7"/>
                                 <Button variant="dark" onClick={savingsButton}>Savings</Button>
                             </Card>
                         </Col>
@@ -93,7 +96,7 @@ const Viewuser = (props) => {
                             <Link class="btn btn-outline-primary" onClick={userButton}>Add Amount</Link>
                             <Link class="btn btn-outline-primary" onClick={userButton2}>Withdarw Amount</Link>
                             {/* <Link class="btn btn-outline-primary" onClick={ministatement}>Ministatementt</Link> */}
-                            <Link class='btn btn-outline-primary' onClick={setData('Savings')} to={`/mini/${user.id}`}>MiniStatement</Link>
+                            <Link class='btn btn-outline-primary' onClick={setData('Savings')} to={`/ministatement/${user.id}`}>MiniStatement</Link>
                             <ul className="list-group w-50" >
                                 <li className="list-group-item">Name : {user.name}</li>
                                 <li className="list-group-item">Username : {user.username}</li>
@@ -112,14 +115,14 @@ const Viewuser = (props) => {
                                 <Link class="btn btn-outline-primary" onClick={currentAddAmount}>Add Amount</Link>
                                 <Link class="btn btn-outline-primary" onClick={currentDelAmount}>Withdarw Amount</Link>
                                 {/* <Link class="btn btn-outline-primary" onClick={ministatement}>Ministatementt</Link> */}
-                                <Link class='btn btn-outline-primary' onClick={setData('Current')} to={`/mini/${user.id}`}>MiniStatement</Link>
+                                <Link class='btn btn-outline-primary' onClick={setData('Current')} to={`/ministatement/${user.id}`}>MiniStatement</Link>
                                 <ul className="list-group w-50">
                                     <li className="list-group-item">Name : {user.name}</li>
                                     <li className="list-group-item">Username : {user.username}</li>
                                     <li className="list-group-item">Email: {user.email}</li>
                                     <li className="list-group-item">Account Type:Current</li>
                                     <li className="list-group-item">Mobile : {user.phone}</li>
-                                    <li className="list-group-item"> AdharNo: {user.AadharNo}</li>
+                                    <li className="list-group-item"> AadharNo: {user.AadharNo}</li>
                                     <li className="list-group-item">Balance : {user.currentBalance}</li>
 
                                 </ul>
@@ -141,6 +144,12 @@ const Viewuser = (props) => {
 
 
             <Button variant="primary" onClick={currentButton2}>Logout</Button>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     )
 }
