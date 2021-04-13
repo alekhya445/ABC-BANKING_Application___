@@ -1,86 +1,90 @@
-import React, { Component } from "react";
-import { Form, Button, } from 'react-bootstrap';
-import "./../App.css";
-import Nav from "./navbarBeforeLogin";
+import React, { Fragment, useState } from 'react';
+import { Form, Button, Container, Col } from 'react-bootstrap';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-class signup extends Component {
-    constructor(props) {
-        super(props);
+const Signup = () => {
 
-        this.state = {
-            name: " ",
-            username: " ",
-            email: " ",
-            phone: " ",
-            role: "User",
-            password: " ",
-            cType: "current Account",
-            sType: "savings Account",
-            AdharNo: " ",
-        }
+    let history = useHistory();
+    const [user, setUser] = useState({
+        name: "",
+        username: "",
+        email: "",
+        password: "",
+        phone: "",
+        AadharNo: "",
+        role: "User",
+        cType: "Current Account",
+        sType: "Savings Account",
+        balance: 0,
+        currentBalance: 0,
+        transaction: []
+
+    });
+
+    const { name, username, email, password, phone, AadharNo, role, balance, currentBalance, transaction } = user;
+
+    const onInputChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
     }
-    changeHandler = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-    submitHandler = e => {
-        e.preventDefault()
-        console.log(this.state.email)
-        axios.post('http://localhost:3000/users', this.state)
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-    render() {
-        const { name,username,email, password, phone, AdharNo } = this.state
-        //this.props.history.push("/login");
-        return (
-            <div>
-                <Form onSubmit={this.submitHandler}>
 
-                    <h1>Registartion Form For the User!!!</h1>
-                    <br></br>
+    const onSubmit = async e => {
+        e.preventDefault();
+        await axios.post("http://localhost:3000/users", user);
+        history.push('/login');
+    };
+    return (
+        <div >
+            <Container className="container1">
 
-                    <div>
-                        <input type="text" name="name" placeholder="Enter Your Name!!" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
+                <Form onSubmit={e => onSubmit(e)}>
+                    <center>
 
-                    <div>
-                        <input type="text" name="username" placeholder="Enter Your UserName!!" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter your Name" size="sm" name="name" value={name}
+                            onChange={e => onInputChange(e)} required />
 
+                        <Form.Label >UseName</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Your UserName" size="sm" name="username" value={username}
+                            onChange={e => onInputChange(e)} required />
+                        <Form.Label >Email</Form.Label>
+                        <Form.Control type="email" placeholder="Enter your E-mail Address" size="sm" name="email" value={email}
+                            onChange={e => onInputChange(e)} required />
 
-                    <div>
-                        <input type="text" name="email" placeholder="Enter your Email Id**" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
-                    <div>
-                        <input type="text" name="password" placeholder="Enter your Password**" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
-                    <div>
-                        <input type="text" name="phone" placeholder="Enter your Mobile Number**" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
-                    <div>
-                        <input type="text" name="AdharNo" placeholder="Enter your AadharNo**" onChange={this.changeHandler} />
-                    </div>
-                    <br></br>
-                    <Button variant="primary" onClick={() => { this.props.history.push('/login') }}>Register</Button> 
-                    {/* <Button type="submit">Submit</Button> */}
+                        <Form.Label >Password</Form.Label>
+                        <Form.Control type="password" placeholder="Enter your Password" size="sm" name="password" value={password}
+                            onChange={e => onInputChange(e)} required />
 
+                        <Form.Label >MobileNo</Form.Label>
+                        <Form.Control type="mobile" placeholder="Enter your Phone Number" size="sm" name="phone" value={phone}
+                            onChange={e => onInputChange(e)} required />
+
+                        <Form.Label >AadharNo</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Your Aadhar Number" size="sm" name="AadharNo" value={AadharNo}
+                            onChange={e => onInputChange(e)} required />
+
+                        {/* <Form.Label >Balance</Form.Label>
+                        <Form.Control type="mobile" placeholder="Enter your Balance" size="sm" name="balance" value={balance}
+                            onChange={e => onInputChange(e)} />
+
+                        <Form.Label >NetBalance</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Your Current Balance" size="sm" name="currentBalance" value={currentBalance}
+                            onChange={e => onInputChange(e)} /> */}
+                        {/* <Form.Label >Role</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Your Role" size="sm" name="role" value={role}
+                            onChange={e => onInputChange(e)} required /> */}
+
+                        <br />
+                        <button className="btn btn-primary btn-block">SignUp</button>
+                    </center>
                 </Form>
-            </div>
+            </Container>
+        </div>
 
-        )
-    }
-
+    )
 }
+export default Signup;
 
 
-export default signup;
+
+
