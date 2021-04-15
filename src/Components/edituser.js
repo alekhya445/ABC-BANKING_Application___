@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Container, Card } from 'react-bootstrap';
 import { useHistory, useParams, Link } from 'react-router-dom';
-import Adminaxios from './adminaxios';
+import Adminpage from './adminpage';
 import axios from 'axios';
 
 const Edituser = () => {
@@ -32,7 +32,7 @@ const Edituser = () => {
     const onSubmit = async e => {
         e.preventDefault();
         await axios.put(`http://localhost:3000/users/${id}`, user);
-        history.push('/adminaxios');
+        history.push('/adminpage');
 
     }
 
